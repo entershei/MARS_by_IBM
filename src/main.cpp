@@ -43,6 +43,10 @@ string to_str_32(uint32_t n) {
 }
 
 uint32_t left_rotation(uint32_t n, uint32_t rot) {
+    rot %= 32;
+    if (rot == 0) {
+        return n;
+    }
     uint32_t tail = n >> (32 - rot);
     n <<= rot;
     n += tail;
@@ -50,6 +54,10 @@ uint32_t left_rotation(uint32_t n, uint32_t rot) {
 }
 
 uint32_t right_rotation(uint32_t n, uint32_t rot) {
+    rot %= 32;
+    if (rot == 0) {
+        return n;
+    }
     uint32_t head = n << (32 - rot);
     n >>= rot;
     n += head;
